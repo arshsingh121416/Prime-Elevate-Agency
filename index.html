@@ -452,29 +452,53 @@
 <div class="row">
 <div>
 <label for="c_name">Name</label>
-<input id="c_name" placeholder="Your name"/>
-</div>
-<div>
-<label for="c_phone">Phone</label>
-<input id="c_phone" placeholder="(903) 000-0000"/>
-</div>
-</div>
-<div class="row" style="margin-top:12px;">
-<div>
-<label for="c_email">Email</label>
-<input id="c_email" placeholder="you@company.com"/>
-</div>
-<div>
-<label for="c_business">Business Name</label>
-<input id="c_business" placeholder="Business name"/>
-</div>
-</div>
-<div style="margin-top:12px;">
-<label for="c_message">What do you need help with?</label>
-<textarea id="c_message" placeholder="Tell us what you want (more calls, leads, bookings), your service area, and anything important."></textarea>
-</div>
-<div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
-<button class="btn primary" id="btnSend" type="button">Send Message</button>
+<form name="prime-elevate-contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field">
+
+  <!-- Required hidden field for Netlify -->
+  <input type="hidden" name="form-name" value="prime-elevate-contact" />
+
+  <!-- Honeypot (spam trap) -->
+  <p style="display:none;">
+    <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
+
+  <div class="row">
+    <div>
+      <label for="c_name">Name</label>
+      <input id="c_name" name="name" placeholder="Your name" required />
+    </div>
+    <div>
+      <label for="c_phone">Phone</label>
+      <input id="c_phone" name="phone" placeholder="(903) 000-0000" required />
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:12px;">
+    <div>
+      <label for="c_email">Email</label>
+      <input id="c_email" name="email" placeholder="you@company.com" />
+    </div>
+    <div>
+      <label for="c_business">Business Name</label>
+      <input id="c_business" name="business" placeholder="Business name" />
+    </div>
+  </div>
+
+  <div style="margin-top:12px;">
+    <label for="c_message">What do you need help with?</label>
+    <textarea id="c_message" name="message" placeholder="Tell us what you want (more calls, leads, bookings), your service area, and anything important." required></textarea>
+  </div>
+
+  <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+    <button class="btn primary" type="submit">Send Message</button>
+    <a class="btn ghost" href="#calculator">Get an estimate first</a>
+  </div>
+
+  <div class="disclaimer" id="sendNote" style="display:none;"></div>
+</form>
 <a class="btn ghost" href="#calculator">Get an estimate first</a>
 </div>
 <div class="disclaimer" id="sendNote" style="display:none;"></div>
@@ -766,41 +790,8 @@
     document.getElementById("btnCalc").addEventListener("click", generateOptions);
     document.getElementById("btnReset").addEventListener("click", resetCalc);
 
-    // =============================
-    // CONTACT FORM -> mailto:
-    // =============================
-    document.getElementById("btnSend").addEventListener("click", () => {
-      const name = document.getElementById("c_name").value.trim();
-      const phone = document.getElementById("c_phone").value.trim();
-      const email = document.getElementById("c_email").value.trim();
-      const business = document.getElementById("c_business").value.trim();
-      const msg = document.getElementById("c_message").value.trim();
+   
 
-      const note = document.getElementById("sendNote");
-      note.style.display = "block";
-
-      if (!name || !phone || !msg){
-        note.style.color = "rgba(255,255,255,.85)";
-        note.innerHTML = "Please fill in <b>Name</b>, <b>Phone</b>, and your <b>Message</b> so we can respond.";
-        return;
-      }
-
-      const subject = encodeURIComponent(`Prime Elevate Website Inquiry — ${business || name}`);
-      const body = encodeURIComponent(
-        `Name: ${name}\n` +
-        `Phone: ${phone}\n` +
-        `Email: ${email || "(not provided)"}\n` +
-        `Business: ${business || "(not provided)"}\n\n` +
-        `Message:\n${msg}\n`
-      );
-
-      // mailto opens user's email client
-      const mailto = `mailto:${CONFIG.toEmail}?subject=${subject}&body=${body}`;
-      window.location.href = mailto;
-
-      note.style.color = "rgba(255,255,255,.85)";
-      note.innerHTML = "Your email app should open now. If it doesn’t, copy your message and send it directly.";
-    });
   </script>
 </body>
 </html>
