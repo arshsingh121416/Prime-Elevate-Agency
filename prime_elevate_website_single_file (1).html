@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prime Elevate LLC | Longview & East Texas Marketing Agency</title>
+  <meta name="description" content="Prime Elevate helps East Texas businesses get more leads, calls, and bookings through Google, paid ads, and conversion-focused systems." />
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --panel:#121214;
+      --text:#f3f3f3;
+      --muted:#b9b9b9;
+      --gold:#c9a24d;
+      --line:#2a2a2f;
+      --good:#45d483;
+      --warn:#ffcc66;
+      --bad:#ff5c5c;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --radius2: 12px;
+      --max: 1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:#0a0a0c;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px;}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; position:sticky; top:0; z-index:50;
+      padding:14px 16px; margin:-28px -18px 22px;
+      background:#0a0a0c;
+      backdrop-filter:none;
+      border-bottom:none;
+      box-shadow: 0 8px 22px rgba(0,0,0,.35);
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px;}
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, rgba(201,162,77,1), rgba(201,162,77,.35));
+      box-shadow: 0 8px 18px rgba(201,162,77,.22);
+    }
+    .brand small{display:block; font-weight:600; color:var(--muted); letter-spacing:.2px}
+    .navlinks{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end;}
+    .navlinks a{
+      text-decoration:none; font-weight:700; font-size:14px; color:var(--muted);
+      padding:10px 10px; border-radius:10px;
+    }
+    .navlinks a:hover{background:rgba(255,255,255,.06); color:var(--text);}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 16px; border-radius:10px;
+      border:1px solid rgba(201,162,77,.5);
+      background:#0f0f12;
+      color:var(--text);
+      text-decoration:none; font-weight:800;
+      box-shadow:none;
+      cursor:pointer;
+    }
+    .btn:hover{background:rgba(201,162,77,.14)}
+    .btn.primary{
+      border-color:var(--gold);
+      background:var(--gold);
+      color:#0a0a0c;
+}
+    .btn.ghost{
+      border-color:rgba(255,255,255,.16);
+      background:rgba(255,255,255,.06);
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(201,162,77,.35);
+      background:rgba(201,162,77,.08);
+      color:var(--muted);
+      font-weight:700; font-size:13px;
+    }
+
+    .hero{
+      display:grid; grid-template-columns: 1.2fr .8fr;
+      gap:22px; align-items:stretch;
+    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr;} }
+
+    .card{
+      background:#121214;
+      border:1px solid rgba(255,255,255,.04);
+      border-radius:var(--radius);
+      box-shadow: 0 6px 18px rgba(0,0,0,.45);
+      padding:22px;
+    }
+    .hero h1{
+      font-size:44px; line-height:1.06; margin:14px 0 12px;
+      letter-spacing:-.8px;
+    }
+    @media (max-width: 900px){ .hero h1{font-size:38px;} }
+    .hero p{color:var(--muted); font-size:16px; line-height:1.6; margin:0 0 16px;}
+    .hero .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;}
+    .hero .mini{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;
+    }
+    .kpis{display:grid; grid-template-columns: repeat(2,1fr); gap:12px;}
+    @media (max-width: 520px){ .kpis{grid-template-columns:1fr;} }
+    .kpi{
+      padding:14px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.22);
+    }
+    .kpi strong{display:block; font-size:16px;}
+    .kpi span{color:var(--muted); font-weight:700; font-size:13px;}
+
+    .section{margin-top:26px;}
+    .section h2{margin:0 0 12px; font-size:22px; letter-spacing:-.3px;}
+    .section p{margin:0 0 10px; color:var(--muted); line-height:1.6;}
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr;} }
+    .tile{
+      padding:16px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.05);
+      background:#151518;
+    }
+    .tile h3{margin:0 0 8px; font-size:16px;}
+    .tile ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.6;}
+    .tile .tag{display:inline-block; margin-top:10px; color:var(--gold); font-weight:900; font-size:13px;}
+
+    .calc-wrap{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 900px){ .calc-wrap{grid-template-columns:1fr;} }
+
+    label{display:block; font-weight:800; margin-bottom:6px; color:#e9e9e9; font-size:13px;}
+    select, input, textarea{
+      width:100%;
+      background:rgba(0,0,0,.28);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      padding:12px 12px;
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    select:focus, input:focus, textarea:focus{border-color:rgba(201,162,77,.6);}
+    textarea{min-height:110px; resize:vertical;}
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:12px;}
+    @media (max-width: 520px){ .row{grid-template-columns:1fr;} }
+
+    .results{
+      border-radius:14px;
+      border:1px solid rgba(201,162,77,.25);
+      background:#111114;
+      padding:14px;
+    }
+    .price{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap:10px; padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .price:last-child{border-bottom:none;}
+    .price strong{font-size:15px;}
+    .price em{font-style:normal; color:var(--muted); font-weight:700; font-size:13px;}
+    .money{color:var(--gold); font-weight:1000;}
+    .disclaimer{
+      color:rgba(255,255,255,.70);
+      font-size:12px; line-height:1.55;
+      margin-top:10px;
+    }
+
+    .footer{
+      margin-top:28px; padding-top:18px;
+      border-top:none;
+      color:var(--muted);
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:space-between; align-items:center;
+      font-size:13px;
+    }
+    .muted{color:var(--muted)}
+    .gold{color:var(--gold); font-weight:900;}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          Prime Elevate LLC
+          <small>Longview • East Texas</small>
+        </div>
+      </div>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#calculator">Pricing Calculator</a>
+        <a href="#links">Links</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary" href="#contact">Get a Quote</a>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card">
+        <span class="pill">📈 Data-driven advertising • Conversion-focused systems</span>
+        <h1>Get more calls, leads, and bookings — <span class="gold">without wasting ad spend.</span></h1>
+        <p>
+          Prime Elevate helps service businesses in Longview and East Texas grow with simple, repeatable systems:
+          <b>Google visibility</b>, <b>lead ads</b>, and <b>conversion-first landing pages</b>.
+        </p>
+        <div class="cta">
+          <!-- Replace the # with a real booking link later (Calendly / GoHighLevel / Google Calendar appointment page) -->
+          <a class="btn primary" href="#contact">Request a Quote</a>
+          <a class="btn ghost" href="#links">Book a Strategy Call</a>
+        </div>
+        <div class="mini">
+          <span class="pill">✅ Local-first</span>
+          <span class="pill">✅ Clear pricing</span>
+          <span class="pill">✅ Weekly updates</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0 0 10px;">What we optimize for</h2>
+        <div class="kpis">
+          <div class="kpi">
+            <strong>📞 Calls</strong>
+            <span>People reaching out ready to buy</span>
+          </div>
+          <div class="kpi">
+            <strong>🗓️ Bookings</strong>
+            <span>Scheduled jobs & appointments</span>
+          </div>
+          <div class="kpi">
+            <strong>🧲 Leads</strong>
+            <span>Forms, DMs, inbound inquiries</span>
+          </div>
+          <div class="kpi">
+            <strong>💰 ROI</strong>
+            <span>Trackable growth, not vanity</span>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; padding:14px; border-radius:14px; background:rgba(0,0,0,.22); border:1px solid rgba(255,255,255,.08);">
+          <div style="font-weight:900; margin-bottom:6px;">Best fit businesses</div>
+          <div class="muted" style="line-height:1.6;">
+            Pressure washing • Roofing • HVAC • Plumbing • Concrete/Asphalt • Fence • Tree services • Junk removal • Auto detailing
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="card">
+        <h2>Services & Packages</h2>
+        <p>Pick what you need — or use the calculator below for a quick estimate and recommended package.</p>
+
+        <div class="grid3">
+          <div class="tile">
+            <h3>Google Business Profile (GBP)</h3>
+            <ul>
+              <li>Setup / cleanup</li>
+              <li>Categories + service areas</li>
+              <li>Photos + posts strategy</li>
+              <li>Review system</li>
+            </ul>
+            <div class="tag">Foundational</div>
+          </div>
+
+          <div class="tile">
+            <h3>Lead Ads (Facebook/Instagram)</h3>
+            <ul>
+              <li>Lead form or call campaigns</li>
+              <li>Simple targeting + testing</li>
+              <li>Weekly optimization</li>
+              <li>Creative refresh</li>
+            </ul>
+            <div class="tag">Fastest results</div>
+          </div>
+
+          <div class="tile">
+            <h3>No-Code Websites & Landing Pages</h3>
+            <ul>
+              <li>Conversion-first layout</li>
+              <li>Mobile-first build</li>
+              <li>CTA buttons + forms</li>
+              <li>Basic SEO structure</li>
+            </ul>
+            <div class="tag">Convert clicks to calls</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn primary" href="#calculator">Use Pricing Calculator</a>
+          <a class="btn ghost" href="#contact">Talk to us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section id="calculator" class="section">
+      <div class="card">
+        <h2>Quick Estimate Calculator</h2>
+        <p>Select what you want. This generates 3–4 recommended options with pricing ranges. Then you can request a quote or book a call.</p>
+
+        <div class="calc-wrap">
+          <div>
+            <div class="row">
+              <div>
+                <label for="industry">Business Type</label>
+                <select id="industry">
+                  <option value="home_services">Home Services (pressure washing, HVAC, roofing, etc.)</option>
+                  <option value="auto">Auto (detail, tint, wrap, etc.)</option>
+                  <option value="health">Health/Wellness (chiro, med spa, gym)</option>
+                  <option value="other">Other Local Business</option>
+                </select>
+              </div>
+              <div>
+                <label for="town">Primary Area</label>
+                <select id="town">
+                  <option>Longview</option>
+                  <option>Tyler</option>
+                  <option>Marshall</option>
+                  <option>Kilgore</option>
+                  <option>Henderson</option>
+                  <option>Carthage</option>
+                  <option>Other East TX</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:12px;">
+              <div>
+                <label for="goal">Primary Goal</label>
+                <select id="goal">
+                  <option value="calls">More phone calls</option>
+                  <option value="leads">More leads (forms/DMs)</option>
+                  <option value="bookings">More booked appointments</option>
+                  <option value="reputation">Stronger reputation (reviews + Google)</option>
+                </select>
+              </div>
+              <div>
+                <label for="speed">How fast do you want results?</label>
+                <select id="speed">
+                  <option value="steady">Steady (organic + simple systems)</option>
+                  <option value="fast">Fast (paid ads + follow-up)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <label>What do you need?</label>
+              <div class="row">
+                <div class="tile" style="padding:12px;">
+                  <label style="display:flex; gap:10px; align-items:center; margin:0;">
+                    <input type="checkbox" id="need_gbp" checked />
+                    <span><b>Google Business Profile</b> (GBP)</span>
+                  </label>
+                </div>
+                <div class="tile" style="padding:12px;">
+                  <label style="display:flex; gap:10px; align-items:center; margin:0;">
+                    <input type="checkbox" id="need_ads" checked />
+                    <span><b>Lead Ads</b> (FB/IG)</span>
+                  </label>
+                </div>
+                <div class="tile" style="padding:12px;">
+                  <label style="display:flex; gap:10px; align-items:center; margin:0;">
+                    <input type="checkbox" id="need_social" />
+                    <span><b>Social Posting</b></span>
+                  </label>
+                </div>
+                <div class="tile" style="padding:12px;">
+                  <label style="display:flex; gap:10px; align-items:center; margin:0;">
+                    <input type="checkbox" id="need_website" />
+                    <span><b>Website/Landing Page</b></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:12px;">
+              <div>
+                <label for="adspend">Planned Ad Spend (monthly)</label>
+                <select id="adspend">
+                  <option value="0">$0 (not running ads yet)</option>
+                  <option value="500">$500/mo</option>
+                  <option value="1000">$1,000/mo</option>
+                  <option value="1500">$1,500/mo</option>
+                  <option value="2500">$2,500/mo</option>
+                </select>
+              </div>
+              <div>
+                <label for="content_level">Content Level</label>
+                <select id="content_level">
+                  <option value="lite">Lite (2 posts/week)</option>
+                  <option value="std">Standard (3 posts/week)</option>
+                  <option value="pro">Pro (4 posts/week + 1 reel)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+              <button class="btn primary" type="button" id="btnCalc">Generate Options</button>
+              <button class="btn ghost" type="button" id="btnReset">Reset</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="results" id="results">
+              <div style="font-weight:1000; margin-bottom:6px;">Your Options will appear here</div>
+              <div class="muted" style="line-height:1.6;">
+                Click <b>Generate Options</b> to see 3–4 recommendations based on your selections.
+              </div>
+            </div>
+
+            <div class="disclaimer">
+              <b>Estimate Reminder:</b> These are budget ranges based on typical local setups.
+              Final pricing depends on your service area, competition, offer, creative needs, and whether assets (photos/videos) are provided.
+              No marketing provider can guarantee results — we focus on strong systems and consistent optimization.
+            </div>
+
+            <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="btn primary" href="#contact">Request a Quote</a>
+              <a class="btn ghost" href="#links">Book a Meeting</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS (Linktree / Booking) -->
+    <section id="links" class="section">
+      <div class="card">
+        <h2>Links</h2>
+        <p>Use this like a simple “linktree” hub. Replace the placeholder links with real URLs later.</p>
+
+        <div class="grid3">
+          <div class="tile">
+            <h3>📅 Book a Strategy Call</h3>
+            <p class="muted">Replace this with Calendly / GoHighLevel booking link.</p>
+            <a class="btn primary" href="#" id="bookingLink">Add booking link</a>
+          </div>
+
+          <div class="tile">
+            <h3>📸 Instagram</h3>
+            <p class="muted">Show proof. Before/after, reviews, behind the scenes.</p>
+            <a class="btn ghost" href="#" id="igLink">Add Instagram link</a>
+          </div>
+
+          <div class="tile">
+            <h3>📄 Portfolio / Case Studies</h3>
+            <p class="muted">Simple page or Google Drive folder of wins.</p>
+            <a class="btn ghost" href="#" id="caseLink">Add portfolio link</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="card">
+        <h2>Contact Us</h2>
+        <p>Send your info and we’ll respond. This form uses email (no backend). Replace the email in the script section.</p>
+
+        <div class="calc-wrap">
+          <div>
+            <div class="row">
+              <div>
+                <label for="c_name">Name</label>
+                <input id="c_name" placeholder="Your name" />
+              </div>
+              <div>
+                <label for="c_phone">Phone</label>
+                <input id="c_phone" placeholder="(903) 000-0000" />
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:12px;">
+              <div>
+                <label for="c_email">Email</label>
+                <input id="c_email" placeholder="you@company.com" />
+              </div>
+              <div>
+                <label for="c_business">Business Name</label>
+                <input id="c_business" placeholder="Business name" />
+              </div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <label for="c_message">What do you need help with?</label>
+              <textarea id="c_message" placeholder="Tell us what you want (more calls, leads, bookings), your service area, and anything important."></textarea>
+            </div>
+
+            <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+              <button class="btn primary" type="button" id="btnSend">Send Message</button>
+              <a class="btn ghost" href="#calculator">Get an estimate first</a>
+            </div>
+
+            <div class="disclaimer" id="sendNote" style="display:none;"></div>
+          </div>
+
+          <div>
+            <div class="tile">
+              <h3>What happens next</h3>
+              <ul>
+                <li>We review your info</li>
+                <li>We send a quick audit summary</li>
+                <li>We schedule a 10–15 minute call</li>
+                <li>We recommend the best option</li>
+              </ul>
+              <div style="margin-top:12px;">
+                <span class="pill">Response time: same day / next day</span>
+              </div>
+            </div>
+
+            <div class="tile" style="margin-top:12px;">
+              <h3>Direct contact (placeholder)</h3>
+              <p class="muted" style="margin:0 0 8px;">Phone: (903) 917-6673</p>
+              <p class="muted" style="margin:0 0 8px;">Email: a25singh@icloud.com</p>
+              <p class="muted" style="margin:0;">Location: Longview, TX</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© <span id="year"></span> Prime Elevate LLC • Longview / East Texas</div>
+      <div class="muted">Built for performance • <span class="gold">Where growth meets excellence</span></div>
+    </div>
+  </div>
+
+  <script>
+    // =============================
+    // CONFIG — UPDATE THESE LATER
+    // =============================
+    const CONFIG = {
+      // Change this to Prime Elevate business email when ready
+      toEmail: "a25singh@icloud.com",
+
+      // Put real links here when ready
+      bookingUrl: "https://calendly.com/your-booking-link",   // placeholder
+      instagramUrl: "https://instagram.com/arshsingh.1",      // from screenshot
+      portfolioUrl: "https://drive.google.com/your-portfolio" // placeholder
+    };
+
+    // Apply links
+    document.getElementById("bookingLink").href = CONFIG.bookingUrl;
+    document.getElementById("igLink").href = CONFIG.instagramUrl;
+    document.getElementById("caseLink").href = CONFIG.portfolioUrl;
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // =============================
+    // PRICING CALCULATOR LOGIC
+    // =============================
+    function money(n){
+      return n.toLocaleString(undefined, { style:"currency", currency:"USD", maximumFractionDigits:0 });
+    }
+
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+    function generateOptions(){
+      const industry = document.getElementById("industry").value;
+      const goal = document.getElementById("goal").value;
+      const speed = document.getElementById("speed").value;
+
+      const need_gbp = document.getElementById("need_gbp").checked;
+      const need_ads = document.getElementById("need_ads").checked;
+      const need_social = document.getElementById("need_social").checked;
+      const need_website = document.getElementById("need_website").checked;
+
+      const adspend = parseInt(document.getElementById("adspend").value, 10);
+      const contentLevel = document.getElementById("content_level").value;
+
+      // Base monthly retainer anchor (East Texas)
+      let baseMin = 500, baseMax = 900;
+
+      // Industry multipliers (just a mock estimate)
+      const indBoost = {
+        home_services: 1.0,
+        auto: 0.95,
+        health: 1.15,
+        other: 1.0
+      }[industry] || 1.0;
+
+      // Speed preference influences emphasis on ads + follow-up
+      const speedBoost = (speed === "fast") ? 1.15 : 1.0;
+
+      // Goal influence
+      const goalBoost = {
+        calls: 1.05,
+        leads: 1.05,
+        bookings: 1.10,
+        reputation: 0.95
+      }[goal] || 1.0;
+
+      // Content level adds cost if social is selected
+      let socialAddMin = 0, socialAddMax = 0;
+      if (need_social){
+        if (contentLevel === "lite"){ socialAddMin = 0; socialAddMax = 200; }
+        if (contentLevel === "std"){ socialAddMin = 150; socialAddMax = 350; }
+        if (contentLevel === "pro"){ socialAddMin = 300; socialAddMax = 650; }
+      }
+
+      // Ads management add
+      let adsMgmtMin = 0, adsMgmtMax = 0;
+      if (need_ads){
+        adsMgmtMin = 500;
+        adsMgmtMax = 1000;
+
+        // If adspend is higher, management often increases a bit
+        if (adspend >= 1500){ adsMgmtMin += 150; adsMgmtMax += 350; }
+        if (adspend >= 2500){ adsMgmtMin += 250; adsMgmtMax += 500; }
+      }
+
+      // GBP add
+      let gbpMin = 0, gbpMax = 0;
+      if (need_gbp){
+        gbpMin = 150;
+        gbpMax = 300;
+      }
+
+      // Website: treat as one-time, but can include a small monthly maintenance add-on
+      let websiteOneTimeMin = 0, websiteOneTimeMax = 0;
+      let websiteMaintMin = 0, websiteMaintMax = 0;
+      if (need_website){
+        websiteOneTimeMin = 750;
+        websiteOneTimeMax = 1500;
+        websiteMaintMin = 50;
+        websiteMaintMax = 150;
+      }
+
+      // If user unchecks everything, force a baseline option
+      const anySelected = need_gbp || need_ads || need_social || need_website;
+      if (!anySelected){
+        baseMin = 500; baseMax = 900;
+      }
+
+      // Compute totals
+      let monthlyMin = baseMin + gbpMin + adsMgmtMin + socialAddMin + websiteMaintMin;
+      let monthlyMax = baseMax + gbpMax + adsMgmtMax + socialAddMax + websiteMaintMax;
+
+      // Apply boosts
+      monthlyMin = Math.round(monthlyMin * indBoost * speedBoost * goalBoost);
+      monthlyMax = Math.round(monthlyMax * indBoost * speedBoost * goalBoost);
+
+      // Keep it sane
+      monthlyMin = clamp(monthlyMin, 500, 7000);
+      monthlyMax = clamp(monthlyMax, monthlyMin + 150, 9000);
+
+      // Build 3–4 options
+      const options = [];
+
+      // Option A: Starter Presence
+      const starterMin = clamp(Math.round((500 + gbpMin + (need_social ? 0 : 0)) * indBoost), 500, 1200);
+      const starterMax = clamp(starterMin + 250, starterMin + 250, 1600);
+      options.push({
+        name: "Option A — Starter Presence",
+        desc: "GBP cleanup + basic local presence + simple plan. Great if you want consistency without heavy ads.",
+        monthly: [starterMin, starterMax],
+        oneTime: need_gbp ? [300, 600] : [0,0]
+      });
+
+      // Option B: Growth (social + light ads)
+      let growthMin = 750 + gbpMin + (need_social ? socialAddMin : 150) + (need_ads ? 350 : 0);
+      let growthMax = 1250 + gbpMax + (need_social ? socialAddMax : 350) + (need_ads ? 600 : 0);
+      growthMin = Math.round(growthMin * indBoost);
+      growthMax = Math.round(growthMax * indBoost);
+      options.push({
+        name: "Option B — Growth",
+        desc: "Consistency + proof content + light lead generation. Most common starting point.",
+        monthly: [clamp(growthMin, 750, 3500), clamp(growthMax, growthMin+200, 4500)],
+        oneTime: need_website ? [websiteOneTimeMin, websiteOneTimeMax] : [0,0]
+      });
+
+      // Option C: Lead Machine (ads + follow-up emphasis)
+      let leadMin = 1500 + gbpMin + adsMgmtMin + (need_social ? socialAddMin : 150) + websiteMaintMin;
+      let leadMax = 3000 + gbpMax + adsMgmtMax + (need_social ? socialAddMax : 350) + websiteMaintMax;
+      leadMin = Math.round(leadMin * indBoost * speedBoost);
+      leadMax = Math.round(leadMax * indBoost * speedBoost);
+      options.push({
+        name: "Option C — Lead Machine",
+        desc: "Lead ads + conversion focus. Best when you want results faster and can handle more work.",
+        monthly: [clamp(leadMin, 1500, 6500), clamp(leadMax, leadMin+300, 9000)],
+        oneTime: need_website ? [websiteOneTimeMin, websiteOneTimeMax] : [750,1500]
+      });
+
+      // Option D: Custom Build (only show if website selected or higher adspend)
+      if (need_website || adspend >= 1500){
+        const customMin = clamp(Math.round(monthlyMin * 1.05), 900, 9000);
+        const customMax = clamp(Math.round(monthlyMax * 1.15), customMin + 250, 12000);
+        options.push({
+          name: "Option D — Custom Build",
+          desc: "For competitive niches, multiple towns, or higher ad budgets. Includes extra testing and creative refresh.",
+          monthly: [customMin, customMax],
+          oneTime: need_website ? [websiteOneTimeMin, websiteOneTimeMax] : [0,0]
+        });
+      }
+
+      // Render
+      const town = document.getElementById("town").value;
+      const resultEl = document.getElementById("results");
+
+      const adSpendLine = (need_ads && adspend > 0)
+        ? `<div class="muted" style="margin-top:6px;">Ad spend (paid by client): <b>${money(adspend)}/mo</b></div>`
+        : `<div class="muted" style="margin-top:6px;">Ad spend: <b>$0/mo</b> (not running ads yet)</div>`;
+
+      let html = `
+        <div style="font-weight:1000; margin-bottom:6px;">Recommended Options (${town})</div>
+        <div class="muted" style="line-height:1.6;">
+          Based on your selections: <b>${goal}</b> goal, <b>${speed}</b> pace.
+        </div>
+        ${adSpendLine}
+        <div style="margin-top:10px;"></div>
+      `;
+
+      options.forEach(opt => {
+        const [m1, m2] = opt.monthly;
+        const [o1, o2] = opt.oneTime;
+        const oneTimeStr = (o1 && o2) ? `${money(o1)}–${money(o2)} one-time` : "—";
+        html += `
+          <div class="price">
+            <div>
+              <strong>${opt.name}</strong><br/>
+              <em>${opt.desc}</em>
+            </div>
+            <div style="text-align:right;">
+              <div class="money">${money(m1)}–${money(m2)}/mo</div>
+              <em>${oneTimeStr}</em>
+            </div>
+          </div>
+        `;
+      });
+
+      html += `
+        <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="#contact">Request a Quote</a>
+          <a class="btn ghost" href="#links">Book a Meeting</a>
+        </div>
+      `;
+
+      resultEl.innerHTML = html;
+
+      // Pre-fill the contact message with estimate summary (funnel)
+      const summaryLines = [
+        `Estimate request from website calculator:`,
+        `Area: ${town}`,
+        `Goal: ${goal}`,
+        `Speed: ${speed}`,
+        `Needs: ${[
+          (need_gbp ? "GBP" : null),
+          (need_ads ? "Ads" : null),
+          (need_social ? "Social" : null),
+          (need_website ? "Website" : null)
+        ].filter(Boolean).join(", ") || "None selected"}`,
+        `Planned ad spend: ${money(adspend)}/mo`,
+        `Content level: ${contentLevel}`,
+        `Preferred option: (A/B/C/D?)`
+      ].join("\n");
+
+      const cMsg = document.getElementById("c_message");
+      if (!cMsg.value.trim()){
+        cMsg.value = summaryLines + "\n\nTell us a bit about your business + service area, and what you want most right now:";
+      }
+    }
+
+    function resetCalc(){
+      document.getElementById("industry").value = "home_services";
+      document.getElementById("town").value = "Longview";
+      document.getElementById("goal").value = "calls";
+      document.getElementById("speed").value = "steady";
+      document.getElementById("need_gbp").checked = true;
+      document.getElementById("need_ads").checked = true;
+      document.getElementById("need_social").checked = false;
+      document.getElementById("need_website").checked = false;
+      document.getElementById("adspend").value = "500";
+      document.getElementById("content_level").value = "lite";
+
+      document.getElementById("results").innerHTML = `
+        <div style="font-weight:1000; margin-bottom:6px;">Your Options will appear here</div>
+        <div class="muted" style="line-height:1.6;">
+          Click <b>Generate Options</b> to see 3–4 recommendations based on your selections.
+        </div>
+      `;
+    }
+
+    document.getElementById("btnCalc").addEventListener("click", generateOptions);
+    document.getElementById("btnReset").addEventListener("click", resetCalc);
+
+    // =============================
+    // CONTACT FORM -> mailto:
+    // =============================
+    document.getElementById("btnSend").addEventListener("click", () => {
+      const name = document.getElementById("c_name").value.trim();
+      const phone = document.getElementById("c_phone").value.trim();
+      const email = document.getElementById("c_email").value.trim();
+      const business = document.getElementById("c_business").value.trim();
+      const msg = document.getElementById("c_message").value.trim();
+
+      const note = document.getElementById("sendNote");
+      note.style.display = "block";
+
+      if (!name || !phone || !msg){
+        note.style.color = "rgba(255,255,255,.85)";
+        note.innerHTML = "Please fill in <b>Name</b>, <b>Phone</b>, and your <b>Message</b> so we can respond.";
+        return;
+      }
+
+      const subject = encodeURIComponent(`Prime Elevate Website Inquiry — ${business || name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Email: ${email || "(not provided)"}\n` +
+        `Business: ${business || "(not provided)"}\n\n` +
+        `Message:\n${msg}\n`
+      );
+
+      // mailto opens user's email client
+      const mailto = `mailto:${CONFIG.toEmail}?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+
+      note.style.color = "rgba(255,255,255,.85)";
+      note.innerHTML = "Your email app should open now. If it doesn’t, copy your message and send it directly.";
+    });
+  </script>
+</body>
+</html>
