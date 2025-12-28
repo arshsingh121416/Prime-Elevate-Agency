@@ -444,87 +444,88 @@
 </section>
 <!-- CONTACT -->
 <section class="section" id="contact">
-<div class="card">
-<h2>Contact Us</h2>
-<p>Send your info and we’ll respond. This form uses email (no backend). Replace the email in the script section.</p>
-<div class="calc-wrap">
-<div>
-<div class="row">
-<div>
-<label for="c_name">Name</label>
-<form name="prime-elevate-contact"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field">
+  <div class="card">
+    <h2>Contact Us</h2>
+    <p>Send your info and we’ll respond.</p>
 
-  <!-- Required hidden field for Netlify -->
-  <input type="hidden" name="form-name" value="prime-elevate-contact" />
+    <div class="calc-wrap">
 
-  <!-- Honeypot (spam trap) -->
-  <p style="display:none;">
-    <label>Don’t fill this out: <input name="bot-field" /></label>
-  </p>
+      <!-- LEFT COLUMN (FORM) -->
+      <div>
+        <form name="prime-elevate-contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field">
 
-  <div class="row">
-    <div>
-      <label for="c_name">Name</label>
-      <input id="c_name" name="name" placeholder="Your name" required />
-    </div>
-    <div>
-      <label for="c_phone">Phone</label>
-      <input id="c_phone" name="phone" placeholder="(903) 000-0000" required />
+          <input type="hidden" name="form-name" value="prime-elevate-contact" />
+
+          <p style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="row">
+            <div>
+              <label for="c_name">Name</label>
+              <input id="c_name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="c_phone">Phone</label>
+              <input id="c_phone" name="phone" placeholder="(903) 000-0000" required />
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:12px;">
+            <div>
+              <label for="c_email">Email</label>
+              <input id="c_email" name="email" placeholder="you@company.com" />
+            </div>
+            <div>
+              <label for="c_business">Business Name</label>
+              <input id="c_business" name="business" placeholder="Business name" />
+            </div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <label for="c_message">What do you need help with?</label>
+            <textarea id="c_message" name="message"
+              placeholder="Tell us what you want (more calls, leads, bookings), your service area, and anything important."
+              required></textarea>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+            <button class="btn primary" type="submit">Send Message</button>
+            <a class="btn ghost" href="#calculator">Get an estimate first</a>
+          </div>
+
+          <div class="disclaimer" id="sendNote" style="display:none;"></div>
+        </form>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+        <div class="tile">
+          <h3>What happens next</h3>
+          <ul>
+            <li>We review your info</li>
+            <li>We send a quick audit summary</li>
+            <li>We schedule a 10–15 minute call</li>
+            <li>We recommend the best option</li>
+          </ul>
+          <div style="margin-top:12px;">
+            <span class="pill">Response time: same day / next day</span>
+          </div>
+        </div>
+
+        <div class="tile" style="margin-top:12px;">
+          <h3>Direct contact (placeholder)</h3>
+          <p class="muted" style="margin:0 0 8px;">Phone: (903) 917-6673</p>
+          <p class="muted" style="margin:0 0 8px;">Email: a25singh@icloud.com</p>
+          <p class="muted" style="margin:0;">Location: Longview, TX</p>
+        </div>
+      </div>
+
     </div>
   </div>
-
-  <div class="row" style="margin-top:12px;">
-    <div>
-      <label for="c_email">Email</label>
-      <input id="c_email" name="email" placeholder="you@company.com" />
-    </div>
-    <div>
-      <label for="c_business">Business Name</label>
-      <input id="c_business" name="business" placeholder="Business name" />
-    </div>
-  </div>
-
-  <div style="margin-top:12px;">
-    <label for="c_message">What do you need help with?</label>
-    <textarea id="c_message" name="message" placeholder="Tell us what you want (more calls, leads, bookings), your service area, and anything important." required></textarea>
-  </div>
-
-  <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
-    <button class="btn primary" type="submit">Send Message</button>
-    <a class="btn ghost" href="#calculator">Get an estimate first</a>
-  </div>
-
-  <div class="disclaimer" id="sendNote" style="display:none;"></div>
-</form>
-<a class="btn ghost" href="#calculator">Get an estimate first</a>
-</div>
-<div class="disclaimer" id="sendNote" style="display:none;"></div>
-</div>
-<div>
-<div class="tile">
-<h3>What happens next</h3>
-<ul>
-<li>We review your info</li>
-<li>We send a quick audit summary</li>
-<li>We schedule a 10–15 minute call</li>
-<li>We recommend the best option</li>
-</ul>
-<div style="margin-top:12px;">
-<span class="pill">Response time: same day / next day</span>
-</div>
-</div>
-<div class="tile" style="margin-top:12px;">
-<h3>Direct contact (placeholder)</h3>
-<p class="muted" style="margin:0 0 8px;">Phone: (903) 917-6673</p>
-<p class="muted" style="margin:0 0 8px;">Email: a25singh@icloud.com</p>
-<p class="muted" style="margin:0;">Location: Longview, TX</p>
-</div>
-</div>
-</div>
-</div>
 </section>
 <div class="footer">
 <div>© <span id="year"></span> Prime Elevate LLC • Longview / East Texas</div>
