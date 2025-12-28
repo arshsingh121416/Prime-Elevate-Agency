@@ -216,7 +216,7 @@
         </p>
 <div class="cta">
 <!-- Replace the # with a real booking link later (Calendly / GoHighLevel / Google Calendar appointment page) -->
-<a class="btn primary" href="#contact">Request a Quote</a>
+<a class="btn primary" href="#contact" id="rqFromHero">Request a Quote</a>
 <a class="btn ghost" href="#links">Book a Strategy Call</a>
 </div>
 <div class="mini">
@@ -738,7 +738,7 @@
 
       html += `
         <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn primary" href="#contact">Request a Quote</a>
+          <a class="btn primary" href="#contact" id="rqFromResults">Request a Quote</a>
           <a class="btn ghost" href="#links">Book a Meeting</a>
         </div>
       `;
@@ -763,9 +763,9 @@
       ].join("\n");
 
       const cMsg = document.getElementById("c_message");
-      if (!cMsg.value.trim()){
-        cMsg.value = summaryLines + "\n\nTell us a bit about your business + service area, and what you want most right now:";
-      }
+cMsg.value =
+  summaryLines +
+  "\n\nTell us a bit about your business + service area, and what you want most right now:";
     }
 
     function resetCalc(){
@@ -786,12 +786,59 @@
           Click <b>Generate Options</b> to see 3–4 recommendations based on your selections.
         </div>
       `;
+    document.getElementById("c_message").value = "";
     }
 
     document.getElementById("btnCalc").addEventListener("click", generateOptions);
     document.getElementById("btnReset").addEventListener("click", resetCalc);
 
-   
+   function fillContactFromCurrentSelections(){
+  const town = document.getElementById("town")?.value || "";
+  const goal = document.getElementById("goal")?.value || "";
+  const speed = document.getElementById("speed")?.value || "";
+
+  const need_gbp = document.getElementById("need_gbp")?.checked;
+  const need_ads = document.getElementById("need_ads")?.checked;
+  const need_social = document.getElementById("need_social")?.checked;
+  const need_website = document.getElementById("need_website")?.checked;
+
+  const adspend = parseInt(document.getElementById("adspend")?.value || "0", 10);
+  const contentLevel = document.getElementById("content_level")?.value || "";
+
+  const summaryLines = [
+    `Estimate request from website calculator:`,
+    `Area: ${town}`,
+    `Goal: ${goal}`,
+    `Speed: ${speed}`,
+    `Needs: ${[
+      (need_gbp ? "GBP" : null),
+      (need_ads ? "Ads" : null),
+      (need_social ? "Social" : null),
+      (need_website ? "Website" : null)
+    ].filter(Boolean).join(", ") || "None selected"}`,
+    `Planned ad spend: ${money(adspend)}/mo`,
+    `Content level: ${contentLevel}`,
+    `Preferred option: (A/B/C/D?)`
+  ].join("\n");
+
+  const cMsg = document.getElementById("c_message");
+  if (cMsg){
+    cMsg.value =
+      summaryLines +
+      "\n\nTell us a bit about your business + service area, and what you want most right now:";
+  }
+}
+
+// Force-fill when someone clicks ANY link that goes to #contact
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href="#contact"]');
+  if (!a) return;
+
+  // Only fill if the calculator + message box exist on page
+  if (document.getElementById("town") && document.getElementById("c_message")){
+    fillContactFromCurrentSelections();
+  }
+});
 
   </script>
 </body>
