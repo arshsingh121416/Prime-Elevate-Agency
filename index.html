@@ -185,6 +185,26 @@
     }
     .muted{color:var(--muted)}
     .gold{color:var(--gold); font-weight:900;}
+    /* --- Mobile alignment fixes for "What do you need?" tiles --- */
+.need-grid .tile{ padding:12px; }
+
+.need-grid label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0;
+  line-height:1.25;
+}
+
+.need-grid input[type="checkbox"]{
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  margin:0;
+  transform: translateY(1px);
+}
+
+.need-grid span{ display:block; }
   </style>
 <meta content="Prime Elevate LLC | Longview &amp; East Texas Marketing Agency" property="og:title"/><meta content="Prime Elevate helps East Texas businesses get more leads, calls, and bookings through Google, paid ads, and conversion-focused systems." property="og:description"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="Prime Elevate LLC | Longview &amp; East Texas Marketing Agency" name="twitter:title"/><meta content="Prime Elevate helps East Texas businesses get more leads, calls, and bookings through Google, paid ads, and conversion-focused systems." name="twitter:description"/><meta content="#0b0b0c" name="theme-color"/><link href="" rel="canonical"/></head>
 <body>
@@ -346,27 +366,27 @@
 </div>
 <div style="margin-top:12px;">
 <label>What do you need?</label>
-<div class="row">
+<div class="row need-grid">
 <div class="tile" style="padding:12px;">
-<label style="display:flex; gap:10px; align-items:center; margin:0;">
+<label>
 <input checked="" id="need_gbp" type="checkbox"/>
 <span><b>Google Business Profile</b> (GBP)</span>
 </label>
 </div>
 <div class="tile" style="padding:12px;">
-<label style="display:flex; gap:10px; align-items:center; margin:0;">
+<label>
 <input checked="" id="need_ads" type="checkbox"/>
 <span><b>Lead Ads</b> (FB/IG)</span>
 </label>
 </div>
 <div class="tile" style="padding:12px;">
-<label style="display:flex; gap:10px; align-items:center; margin:0;">
+<label>
 <input id="need_social" type="checkbox"/>
 <span><b>Social Posting</b></span>
 </label>
 </div>
 <div class="tile" style="padding:12px;">
-<label style="display:flex; gap:10px; align-items:center; margin:0;">
+<label>
 <input id="need_website" type="checkbox"/>
 <span><b>Website/Landing Page</b></span>
 </label>
